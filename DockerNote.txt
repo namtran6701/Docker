@@ -1,0 +1,60 @@
+# build the image 
+```
+docker build -t welcome-app .
+```
+
+# check if the docker image is created
+
+```
+docker images
+```
+
+since we have already created the image, we can now instantiate the container
+
+The command docker run -p 5000:5000 welcome-app is used to start a Docker container from the welcome-app image
+
+- docker run: This is the command to start a new Docker container.
+- -p 5000:5000: This is an option that publishes a container's port(s) to the host. In this case, it's mapping port 5000 of the host to port 5000 of the Docker container. The format is -p <host-port>:<container-port>. This means that the application inside the Docker container, which is listening on port 5000, can be accessed from your host machine on port 5000.
+- welcome-app: This is the name of the Docker image to start the container from. In this case, it's the welcome-app image that was built using the docker build -t welcome-app . command.
+
+# check how many containers are running
+
+```
+docker ps
+```
+
+# stop the docker container 
+
+```
+docker stop <container_id>
+```
+whatever docker image we have crated, we push that to the docker hub
+
+# To login to docker, use 
+
+```
+docker login 
+```
+
+# remove a docker image 
+
+```
+docker image rm -f <image name>
+```
+
+# build a docker images (for pushing to docker hub later)
+```
+docker build -t <dockerhub_username>/<image_name> .
+```
+
+# rename a docker image
+```
+docker tag <old_image_name> <new_image_name>
+```
+
+# push the docker image to docker hub
+```
+docker push <dockerhub_username>/<image_name>:<tag> (tag could be latest or any other tag)
+```
+
+# pull a docker image from docker hub
